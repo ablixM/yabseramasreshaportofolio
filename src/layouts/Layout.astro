@@ -14,10 +14,11 @@ const {
   author,
   socialLinks,
   socialImage,
-  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
 } = SITE_CONFIG;
 
-const ogImgUrl = canonicalURL + socialImage;
+const siteOrigin = Astro.site ? Astro.site.origin : "https://yabseramasreshaportofolio.vercel.app";
+const canonicalURL = new URL(Astro.url.pathname, siteOrigin).href;
+const ogImgUrl = new URL(withBase(socialImage), siteOrigin).href;
 ---
 
 <!doctype html>

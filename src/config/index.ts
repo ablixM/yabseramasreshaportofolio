@@ -18,8 +18,8 @@ export const SITE_CONFIG: SiteConfig = {
     { text: "Email", href: "mailto:yabseramasresha2004@gmail.com" },
     { text: "Phone: 0919778519", href: "tel:0919778519" },
   ],
-  socialImage: "/zen-og.png",
-  canonicalURL: "https://astro-zen.vercel.app",
+  socialImage: "/og.png",
+  canonicalURL: "https://yabseramasreshaportofolio.vercel.app",
 };
 
 export const SITE_CONTENT: SiteContent = {
