@@ -2,6 +2,7 @@
 import Menu from "@icons/Menu.astro";
 import { Image } from "astro:assets";
 import type { HeaderProps } from "@types";
+import { withBase } from "../utils/base";
 
 type Props = HeaderProps;
 
@@ -11,10 +12,10 @@ const { siteLogo, navLinks } = Astro.props;
 <header
   class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-black px-5 py-6"
 >
-  <a href="/" aria-label="Home link">
+  <a href={import.meta.env.BASE_URL} aria-label="Home link">
     <Image
       class="rounded-full"
-      src={siteLogo}
+      src={withBase(siteLogo)}
       width="45"
       height="45"
       alt="website logo"

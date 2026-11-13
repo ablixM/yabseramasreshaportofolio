@@ -1,6 +1,7 @@
 ---
 import Section from "./Section.astro";
 import type { ProjectProps } from "@types";
+import { withBase } from "../utils/base";
 
 interface Props {
   projects: ProjectProps[];
@@ -69,7 +70,7 @@ const { projects } = Astro.props;
                   <div class="flex w-full items-center justify-center overflow-hidden rounded-xl border border-white/5 bg-black/40 p-2">
                     <img
                       class="main-gallery-img max-h-64 w-auto max-w-full rounded-lg object-contain transition-all duration-300 sm:max-h-72"
-                      src={images[0]}
+                      src={withBase(images[0])}
                       alt={name}
                       loading="eager"
                       decoding="async"
@@ -80,11 +81,11 @@ const { projects } = Astro.props;
                       <button
                         type="button"
                         class={`thumbnail-btn group relative h-12 w-14 overflow-hidden rounded-lg border bg-black/50 p-0.5 transition-all cursor-pointer sm:h-14 sm:w-16 ${idx === 0 ? 'border-primary ring-2 ring-primary/40' : 'border-neutral/30 opacity-70 hover:border-neutral/60 hover:opacity-100'}`}
-                        data-img={imgSrc}
+                        data-img={withBase(imgSrc)}
                         aria-label={`View image ${idx + 1}`}
                       >
                         <img
-                          src={imgSrc}
+                          src={withBase(imgSrc)}
                           alt={`${name} thumbnail ${idx + 1}`}
                           class="h-full w-full rounded object-cover"
                           loading="eager"
@@ -98,7 +99,7 @@ const { projects } = Astro.props;
                 <div class="flex w-full items-center justify-center overflow-hidden rounded-xl border border-white/5 bg-black/40 p-2">
                   <img
                     class="max-h-72 w-auto max-w-full rounded-xl object-contain sm:max-h-80"
-                    src={image}
+                    src={withBase(image)}
                     alt={name}
                     loading="lazy"
                   />

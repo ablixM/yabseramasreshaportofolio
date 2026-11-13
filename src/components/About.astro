@@ -2,6 +2,7 @@
 import Section from "./Section.astro";
 import { Image } from "astro:assets";
 import type { AboutProps, HeroProps } from "@types";
+import { withBase } from "../utils/base";
 
 type Props = AboutProps & Pick<HeroProps, "name">;
 
@@ -19,7 +20,7 @@ const paragraphs = description.trim().split(/\n\s*\n/).filter(Boolean);
     <div class="h-80 w-64 shrink-0 rotate-[5deg] bg-white p-4 md:rotate-[7deg]">
       <Image
         class="object-cover"
-        src={image}
+        src={withBase(image)}
         width="260"
         height="260"
         alt={name}

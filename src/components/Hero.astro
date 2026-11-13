@@ -1,5 +1,7 @@
 ---
 import type { HeroProps } from "@types";
+import { withBase } from "../utils/base";
+
 type Props = HeroProps;
 
 const { name, specialty, summary, email } = Astro.props;
@@ -11,7 +13,7 @@ const { name, specialty, summary, email } = Astro.props;
 >
   <div
     class="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-    style="background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.72) 50%, rgba(0, 0, 0, 0.6) 100%), url('/hero-bg.avif');"
+    style={`background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.72) 50%, rgba(0, 0, 0, 0.6) 100%), url('${withBase('/hero-bg.avif')}');`}
   >
   </div>
   <div class="relative z-10">
