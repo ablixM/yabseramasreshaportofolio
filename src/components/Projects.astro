@@ -1,6 +1,5 @@
 ---
 import Section from "./Section.astro";
-import { Image } from "astro:assets";
 import type { ProjectProps } from "@types";
 
 interface Props {
@@ -10,46 +9,101 @@ interface Props {
 const { projects } = Astro.props;
 ---
 
-<Section text="Featured Projects" href="projects">
+<Section text="My Contributions" href="contributions">
   {
-    projects.map(({ name, summary, image, linkPreview, linkSource }, index) => {
+    projects.map(({ name, summary, image, images, linkPreview, linkSource }, index) => {
       const top = 98 + index * 40;
       return (
         <div
           style={`top: ${top}px;`}
           class="sticky mb-12 rounded-2xl border border-neutral/20 bg-black"
         >
-          <div class="bg-difu relative z-1 grid h-145 w-full grid-rows-2 rounded-2xl bg-[#1c232d]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-size-[128px] before:bg-repeat before:opacity-5 before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
-            <div class="px-6 pt-12">
-              <h3 class="mb-5 font-serif text-3xl font-medium text-primary">
+          <div class="bg-difu relative z-1 grid min-h-120 w-full rounded-2xl bg-[#1c232d]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-size-[128px] before:bg-repeat before:opacity-5 before:content-[''] sm:grid-cols-2 md:min-h-105">
+            <div class="flex flex-col justify-center px-6 py-8 md:py-10">
+              <h3 class="mb-4 font-serif text-2xl font-medium text-primary md:text-3xl">
                 {name}
               </h3>
-              <p class="text-base text-neutral">{summary}</p>
-              <div class="flex gap-5 pt-10 text-white">
-                <a
-                  href={linkSource}
-                  target="_blank"
-                  class="after:relative after:-bottom-1.25 after:content-[url(/external.svg)] hover:underline"
-                >
-                  Source
-                </a>
-                <a
-                  href={linkPreview}
-                  target="_blank"
-                  class="after:relative after:-bottom-1.25 after:content-[url(/external.svg)] hover:underline"
-                >
-                  Preview
-                </a>
-              </div>
+              {Array.isArray(summary) ? (
+                <ul class="list-none space-y-2.5">
+                  {summary.map((point) =>
+                    point.includes("Civil Engineer") ? (
+                      <p class="mb-2 text-sm font-medium text-white/90 md:text-base">
+                        {point}
+                      </p>
+                    ) : (
+                      <li class="relative pl-6 text-sm text-neutral before:absolute before:top-1.5 before:left-0 before:h-2 before:w-2 before:rounded-full before:bg-primary md:text-base">
+                        {point}
+                      </li>
+                    )
+                  )}
+                </ul>
+              ) : (
+                <p class="text-base text-neutral">{summary}</p>
+              )}
+              {(linkSource || linkPreview) && (
+                <div class="flex gap-5 pt-6 text-white">
+                  {linkSource && (
+                    <a
+                      href={linkSource}
+                      target="_blank"
+                      class="after:relative after:-bottom-1.25 after:content-[url(/external.svg)] hover:underline"
+                    >
+                      Source
+                    </a>
+                  )}
+                  {linkPreview && (
+                    <a
+                      href={linkPreview}
+                      target="_blank"
+                      class="after:relative after:-bottom-1.25 after:content-[url(/external.svg)] hover:underline"
+                    >
+                      Preview
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
-            <div class="flex items-end justify-end overflow-hidden">
-              <Image
-                class="h-full w-[95%] rounded-ss-xl rounded-ee-2xl object-none object-top-left sm:h-[85%] sm:w-full"
-                src={image}
-                alt={name}
-                width="736"
-                height="483"
-              />
+            <div class="flex flex-col items-center justify-center overflow-hidden p-4 sm:p-6">
+              {images && images.length > 0 ? (
+                <div class="project-gallery flex w-full flex-col items-center gap-3">
+                  <div class="flex w-full items-center justify-center overflow-hidden rounded-xl border border-white/5 bg-black/40 p-2">
+                    <img
+                      class="main-gallery-img max-h-64 w-auto max-w-full rounded-lg object-contain transition-all duration-300 sm:max-h-72"
+                      src={images[0]}
+                      alt={name}
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </div>
+                  <div class="flex w-full flex-wrap items-center justify-center gap-2 pt-1">
+                    {images.map((imgSrc, idx) => (
+                      <button
+                        type="button"
+                        class={`thumbnail-btn group relative h-12 w-14 overflow-hidden rounded-lg border bg-black/50 p-0.5 transition-all cursor-pointer sm:h-14 sm:w-16 ${idx === 0 ? 'border-primary ring-2 ring-primary/40' : 'border-neutral/30 opacity-70 hover:border-neutral/60 hover:opacity-100'}`}
+                        data-img={imgSrc}
+                        aria-label={`View image ${idx + 1}`}
+                      >
+                        <img
+                          src={imgSrc}
+                          alt={`${name} thumbnail ${idx + 1}`}
+                          class="h-full w-full rounded object-cover"
+                          loading="eager"
+                          decoding="async"
+                        />
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div class="flex w-full items-center justify-center overflow-hidden rounded-xl border border-white/5 bg-black/40 p-2">
+                  <img
+                    class="max-h-72 w-auto max-w-full rounded-xl object-contain sm:max-h-80"
+                    src={image}
+                    alt={name}
+                    loading="lazy"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -57,3 +111,25 @@ const { projects } = Astro.props;
     })
   }
 </Section>
+
+<script>
+  document.querySelectorAll('.project-gallery').forEach((gallery) => {
+    const mainImg = gallery.querySelector('.main-gallery-img');
+    const buttons = gallery.querySelectorAll('.thumbnail-btn');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const newSrc = btn.getAttribute('data-img');
+        if (mainImg && newSrc) {
+          mainImg.setAttribute('src', newSrc);
+          buttons.forEach((b) => {
+            b.classList.remove('border-primary', 'ring-2', 'ring-primary/40');
+            b.classList.add('border-neutral/30', 'opacity-70');
+          });
+          btn.classList.add('border-primary', 'ring-2', 'ring-primary/40');
+          btn.classList.remove('border-neutral/30', 'opacity-70');
+        }
+      });
+    });
+  });
+</script>

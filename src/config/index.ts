@@ -1,23 +1,22 @@
 import type { SiteConfig, SiteContent } from "../types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Alejandro Múnez — Mobile & Web Developer",
-  author: "Alejandro Múnez Cuntez",
+  title: "Yabsera Masrersha — Civil Engineer",
+  author: "Yabsera Masrersha",
   description:
-    "Software Engineer based in San Francisco, USA. I specialize in UI design, web and mobile application development and maintenance.",
+    "Civil Engineer specializing in structural design.",
   lang: "en",
-  siteLogo: "/alejandro-small.jpg",
+  siteLogo: "/yabsera.jpg",
   navLinks: [
-    { text: "Experience", href: "#experience" },
-    { text: "Projects", href: "#projects" },
+    { text: "Home", href: "#hero" },
+    { text: "Contributions", href: "#contributions" },
     { text: "About", href: "#about" },
   ],
   socialLinks: [
-    { text: "Twitter", href: "https://github.com/immois/astro-zen" },
-    { text: "LinkedIn", href: "https://github.com/immois/astro-zen" },
-    { text: "Github", href: "https://github.com/immois/astro-zen" },
-    { text: "Youtube", href: "https://github.com/immois/astro-zen" },
-    { text: "Dribbble", href: "https://github.com/immois/astro-zen" },
+    { text: "Twitter", href: "https://x.com/Yabseramas" },
+    { text: "Telegram", href: "https://t.me/Yabsera_1" },
+    { text: "Email", href: "mailto:yabseramasresha2004@gmail.com" },
+    { text: "Phone: 0919778519", href: "tel:0919778519" },
   ],
   socialImage: "/zen-og.png",
   canonicalURL: "https://astro-zen.vercel.app",
@@ -25,11 +24,10 @@ export const SITE_CONFIG: SiteConfig = {
 
 export const SITE_CONTENT: SiteContent = {
   hero: {
-    name: "Alejandro Múnez",
-    specialty: "Mobile & Web Developer",
-    summary:
-      "Developer based in San Francisco, USA. I specialize in UI design, web and mobile application development and maintenance.",
-    email: "example@email.com",
+    name: "Yabsera Masrersha",
+    specialty: "Civil Engineer",
+    summary: "Specializing in structural design.",
+    email: "yabseramasresha2004@gmail.com",
   },
   experience: [
     {
@@ -64,34 +62,79 @@ export const SITE_CONTENT: SiteContent = {
   ],
   projects: [
     {
-      name: "Spotifu Music",
-      summary: "A music streaming app that emulates Spotify's core features.",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/spotifu.png",
+      name: "Structural Design",
+      summary: [
+        "Design the external casing or chassis of the micro-cooler.",
+        "Ensure the structure is strong enough to withstand transportation, vibration, and minor impacts.",
+        "Design the internal arrangement to safely accommodate vaccine containers, cooling components, and batteries.",
+        "Ensure the structure is lightweight and portable.",
+      ],
+      linkPreview: "",
+      linkSource: "",
+      image: "/micro-cooler/micro-cooler-3d.jpg",
+      images: [
+        "/micro-cooler/micro-cooler-3d.jpg",
+        "/micro-cooler/micro-cooler-front.jpg",
+        "/micro-cooler/micro-cooler-top.jpg",
+        "/micro-cooler/micro-cooler-side.jpg",
+        "/micro-cooler/micro-cooler-features.png",
+      ],
     },
     {
-      name: "Shopp App",
-      summary: "An e-commerce platform that replicates Shopify's key features.",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/shopify-clon.png",
+      name: "Thermal Insulation",
+      summary: [
+        "Select suitable insulating materials such as polyurethane foam.",
+        "Determine appropriate insulation thickness to minimize heat transfer.",
+        "Reduce heat entering the cooler from the external environment.",
+        "Help maintain the required vaccine storage temperature of 2°C–8°C.",
+        "Minimize energy consumption by reducing cooling losses.",
+      ],
+      linkPreview: "",
+      linkSource: "",
+      image: "/thermal-insulation/cross-section-cooler-wall.jpg",
+      images: [
+        "/thermal-insulation/cross-section-cooler-wall.jpg",
+        "/thermal-insulation/insulation-diagram-cutaway.jpg",
+        "/thermal-insulation/cooler-urethane-foam.jpg",
+        "/thermal-insulation/polyurethane-pu-layers.jpg",
+        "/thermal-insulation/polyurethane-foam-slabs.jpg",
+      ],
     },
     {
-      name: "ClonTagram",
-      summary: "A social network that replicates the features of Instagram",
-      linkPreview: "/",
-      linkSource: "https://github.com/immois/astro-zen",
-      image: "/clone-ig.png",
+      name: "Material Selection",
+      summary: [
+        "As a Civil Engineer, I help select construction materials based on:",
+        "Strength and durability.",
+        "Thermal insulation properties.",
+        "Weight and portability.",
+        "Water and moisture resistance.",
+        "Cost and local availability.",
+      ],
+      linkPreview: "",
+      linkSource: "",
+      image: "/material-selection/abs-petg-plastic.jpg",
+      images: [
+        "/material-selection/abs-petg-plastic.jpg",
+        "/material-selection/stainless-steel.jpg",
+        "/material-selection/aluminum-heat-sink.jpg",
+        "/material-selection/silicone-rubber-gasket.jpg",
+        "/material-selection/lithium-ion-battery.jpg",
+        "/material-selection/solar-panel-20w.jpg",
+        "/material-selection/summary.jpg",
+      ],
     },
   ],
   about: {
     description: `
-      Hi, I’m Alejandro Múnez, a passionate Mobile and Web Developer with a knack for crafting seamless digital experiences. With a strong background in both Android and iOS development, as well as front-end web technologies, I thrive in the intersection where creativity meets technology.
+      Hi, I’m Yabsera Masrersha, a 4th year Civil Engineer student in ADDIS ABABA SCIENCE AND TECHNOLOGY UNIVERSITY, dedicated to designing and delivering resilient innovative infrastructure. With expertise in structural engineering, construction management.
 
-      Over the years, I’ve honed my skills in building robust, user-friendly applications that not only meet the needs of users but also push the boundaries of what’s possible. My projects range from innovative mobile applications to responsive web designs, all with a focus on performance, security, and scalability.
+      I am excited in using engineering concepts to tackle real-world issues in novel, practical, and cost-effective ways. I thrive where precision engineering meets sustainable design
+
+      As a future Civil Engineer, I hope to expand my technical knowledge, practical skills, creativity, and problem-solving talents while working on projects that benefit people's lives and promote sustainable development.
+
+      I value teamwork, responsibility, continuous learning, and innovation. My ambition is to become a competent Civil Engineer who contributes positively to society through quality engineering design and sustainable construction.
     `,
-    image: "/alejandro-big.jpg",
+    image: "/yabsera.jpg",
   },
 };
 
