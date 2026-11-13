@@ -3,10 +3,16 @@ import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import { fontProviders } from "astro/config";
 
+const isGitHubPages = process.env.GITHUB_ACTIONS === "true";
+
 // https://astro.build/config
 export default defineConfig({
-  site: "https://ablixM.github.io",
-  base: "/yabseramasreshaportofolio",
+  site: isGitHubPages
+    ? "https://ablixM.github.io"
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "https://yabseramasreshaportofolio.vercel.app",
+  base: isGitHubPages ? "/yabseramasreshaportofolio" : "/",
   fonts: [
     {
       provider: fontProviders.fontsource(),
